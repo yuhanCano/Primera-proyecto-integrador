@@ -1,0 +1,124 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Roboto', sans-serif; 
+}
+.container {
+    display: flex;
+    height: 100vh; 
+}
+.logo-container {
+    width: 537px;
+    height: 841px;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 600px;
+    height: 120%;
+}
+
+
+.content-container {
+    flex: 1;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #F6F6F6;
+    max-width: 40%;
+    margin-left: 200px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    border-radius: 5px;
+    box-shadow: -10px 10px 10px -5px rgba(0, 0, 0, 0.75);
+}
+
+.welcome-text {
+    font-weight: 20;
+}
+h6 {
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 700; 
+}
+
+/* Estilos adicionales según necesites */
+h1, form, .social-logins, p {
+    margin-bottom: 15px;
+}
+
+
+
+/* Estilos adicionales según necesites */
+.social-login {
+    display: flex;
+    align-items: center; /* Alinea verticalmente la imagen y el texto */
+    justify-content: center; /* Alinea horizontalmente */
+    padding: 10px 20px;
+    border: 2px;
+    background-color: transparent; /* Color de fondo de Google */
+    color: #000000;
+    cursor: pointer;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #005954;
+}
+
+
+
+
+.linea-con-texto {
+    display: flex;
+    align-items: center;
+}
+
+.linea-horizontal {
+    flex-grow: 1;
+    border: 1px solid #005954; /* Borde de 1 píxel */
+    margin: 10px; /* Margen derecho de 10 píxeles */
+    width: 150px;
+    background-color: #000000;
+}
+/* Otros estilos CSS según lo necesites */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Espacio de 5 píxeles entre los elementos */
+    max-width: 500px; /* Ancho máximo del formulario */
+    border-radius: 8px;
+
+}
+
+input, button {
+    padding: 10px;
+    border: 2.5px solid #005954;
+    border-radius: 5px;
+    height: 36px;
+}
+button.login{
+    margin-top: 30px;
+}
+
+label.enter{
+    padding-top: 30px;
+}
+
+button {
+    width: 390PX;
+    height: 60px;
+    background-color: #005954;
+    color: white;
+    cursor: pointer;
+}
+
+.sing{
+    text-decoration: none;
+    color: #005954;
+    
+}
