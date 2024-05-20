@@ -9,29 +9,41 @@ const auth = getAuth(app);
 
 function Login (){
 
-        const [email, setEmail] = useState("");
-        const [password, setPassword] = useState("");
-      
-       
+        const [correoElectronico, setEmail] = useState("");
+        const [contraseña, setPassword] = useState("");
 
-
+        const handleSubmit = async (e) => {
+            e.preventDefault();
+            try {
+                const response = await axios.post('http://localhost:8080/registro/login', {
+                    correoElectronico,
+                    contraseña
+                });
+                console.log('Autenticación exitosa');
+                // Lógica para redirigir a otra página o mostrar un mensaje de éxito
+            } catch (error) {
+                console.error('Error al iniciar sesión:', error);
+                // Lógica para manejar errores, como mostrar un mensaje de error al usuario
+            }
+        };
     return(
-        
         <>
             <div className="container">
                 <div className="image-container">
                     <img src={imagen} alt="logo" className="logo" />
                 </div>
                 <div className="content-container">
-                    <h1 className="welcome-text">Login</h1>
-                    <form action="">
+                    <h1 className="welcome-text">Acceso</h1>
+                    <form action="" onSubmit={handleSubmit}>
                     <label htmlFor="email" className="enter">E-mail</label>
-                    <input type="email" name="email" id="email" placeholder="Enter your Username or E-mail" value={email}  onChange={e => setEmail(e.target.value)} required />
+                    <input type="email" name="email" id="email" placeholder="Ingrese su E-mail" value={correoElectronico}  onChange={e => setEmail(e.target.value)} required />
                     <label htmlFor="password" className="enter">Password</label>
-                    <input type="password" name="password" id="password" placeholder="Enter your Password" value={password} onChange={e => setPassword(e.target.value)} required />
-                    <button type="submit" className="login">Login</button>
+                    <input type="password" name="password" id="password" placeholder="Ingrese su contraseña" value={contraseña} onChange={e => setPassword(e.target.value)} required />
+                    <Link to={"/carousel"}>
+                    <button type="submit" className="login">Ingresar</button>
+                    </Link>
                     </form>
-                    <p>Don't have an account? <Link className="sing" to={"/Registro"} > Sign Up </Link></p>
+                    <p>No tienes cuenta aun? <Link className="sing" to={"/registro"} > Registrese </Link></p>
                 </div>
             </div>
         </>

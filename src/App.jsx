@@ -3,39 +3,26 @@ import { Registro } from './Menu/Registro/Registro'
 import app from './Credenciales'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import firebase from 'firebase/compat/app'
-import Menu from './Menu/Menu.jsx'
+import Menu from './Menu/Inicio.jsx'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Carousel from './Menu/Carousel.jsx'
 import Login from './Menu/Login/Login.jsx'
 const auth = getAuth(app)
 function App() {
-
-  const [Usuario, setUsuario] = useState(null);
-
-  onAuthStateChanged(auth,(usuario) => {
-      if (usuario) {
-        setUsuario(usuario);
-      } else {
-        setUsuario(null);
-      }
-    });
-
-   
-
   return (
-    <Router>
+    <>
+      <Router>
       <div>
         <Routes>
-          {Usuario ? ( <Route path='/Menu' element={<Menu usuario={Usuario.email}/>}></Route>) : 
-            (
-              <>
-                <Route path="/" element={<Login />} />
-                <Route path="/Registro" element={<Registro />} />
-              </>
-            )}
+          <Route path="/" element={<Menu/>} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/registro" element={<Registro />} />
+          <Route path='/carousel' element={<Carousel/>}/>
         </Routes>
       </div>
     </Router>
-    
+    </>
+ 
   );
 }
 
